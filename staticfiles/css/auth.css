@@ -1,0 +1,108 @@
+/* Authentication pages */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+.auth-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.auth-logo {
+    margin-bottom: 30px;
+}
+
+.auth-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-color);
+}
+
+.auth-subtitle {
+    color: var(--secondary-color);
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.auth-form {
+    margin-bottom: 24px;
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+    color: var(--secondary-color);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.auth-divider span {
+    padding: 0 18px;
+}
+
+.auth-footer {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+.auth-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+.auth-app-links {
+    margin-top: 20px;
+}
+
+.auth-app-links p {
+    font-size: 14px;
+    color: var(--secondary-color);
+    margin-bottom: 16px;
+}
+
+.app-stores {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Forgot password */
+.forgot-password {
+    display: block;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}

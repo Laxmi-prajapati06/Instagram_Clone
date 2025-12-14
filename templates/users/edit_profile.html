@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Profile - Instagram Clone{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="edit-profile-container">
+    <h2>Edit Profile</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="profile-picture-section">
+            <div class="current-picture">
+                {% if user.profile_picture %}
+                    <img src="{{ user.profile_picture.url }}" alt="Profile Picture">
+                {% else %}
+                    <div class="current-picture-default">{{ user.username|first|upper }}</div>
+                {% endif %}
+            </div>
+            <label for="id_profile_picture" class="file-input-label">
+                Change Profile Picture
+            </label>
+            {{ form.profile_picture }}
+            {% if form.profile_picture.errors %}
+                <div class="error-message">
+                    {% for error in form.profile_picture.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_username">Username</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="error-message">
+                    {% for error in form.username.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+
+        <div class="form-group">
+            <label for="id_email">Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="error-message">
+                    {% for error in form.email.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_bio">Bio</label>
+            {{ form.bio }}
+            <small style="color: #8a8a8a; display: block; margin-top: 5px;">Max 500 characters</small>
+            {% if form.bio.errors %}
+                <div class="error-message">
+                    {% for error in form.bio.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-save">Save Changes</button>
+            <a href="{% url 'profile' user.id %}" class="btn-cancel" style="text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center;">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
